@@ -1,0 +1,8 @@
+{
+    "name": "NodeJS CI Workflow",
+    "description": "Organization NodeJS CI workflow template.",
+    "iconName": "example-icon",
+    "categories": [
+        "NodeJS"
+    ]
+}
