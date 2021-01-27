@@ -1,0 +1,24 @@
+name: private-wf
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  private-wf:
+
+    runs-on: ubuntu-latest
+    env:
+     FAIL_ON_QUALITY_GATE: true
+    strategy:
+      matrix:
+        node-version: [ 14.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}. 
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Execute npm ci
+      run: npm ci
